@@ -42,7 +42,7 @@ function UserList({ token }: { token: string }) {
         setError(null);
 
         try {
-            const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/user`, {
+            const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/users`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },

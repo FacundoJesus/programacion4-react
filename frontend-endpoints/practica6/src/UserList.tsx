@@ -46,8 +46,8 @@ function UserList({ token }: { token: string }) {
         setLoading(true);
         setError(null);
 
-        // Práctica 6: Si 'mayores' es true consulta GET /user_mayores; si es false consulta GET /user
-        const endpoint = mayores ? 'user_mayores' : 'user';
+        // Práctica 6: Si 'mayores' es true consulta GET /user_mayores; si es false consulta GET /users
+        const endpoint = mayores ? 'user_mayores' : 'users';
 
         try {
             const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/${endpoint}`, {

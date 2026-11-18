@@ -32,7 +32,7 @@ function UserList({ token }: { token: string }) {
 
     // Cargar la lista inicial de usuarios
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_API_URL}/user`, {
+        fetch(`${import.meta.env.VITE_API_URL}/users`, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
