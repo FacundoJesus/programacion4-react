@@ -1,8 +1,8 @@
 // ----------------------- EJERCICIO 5 --------------------------------
+// Lista de compras - Listas y estado
 import { useState } from 'react';
 import type { ChangeEvent } from 'react';
 
-// Definimos la estructura de cada ítem de la lista
 interface Producto {
   id: number;
   name: string;
@@ -33,38 +33,54 @@ export default function Ej5() {
   }
 
   return (
-    <div>
-      <h3>Lista de compras</h3>
-      <div style={{ display: 'flex', gap: '8px', marginBottom: '12px' }}>
+    <div style={{ maxWidth: '400px' }}>
+      <div style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>
         <input
           value={producto}
           onChange={manejarCambio}
           type="text"
-          placeholder="Ej. yerba"
-          style={{ padding: '8px', borderRadius: '4px', border: '1px solid #ccc' }}
+          placeholder="Ej: yerba"
+          style={{
+            flex: 1,
+            padding: '8px 12px',
+            borderRadius: '6px',
+            border: '1px solid #cbd5e1',
+            fontSize: '15px',
+          }}
         />
-        <button onClick={agregarItem} style={{ padding: '8px 16px' }}>
+        <button
+          onClick={agregarItem}
+          style={{
+            padding: '8px 16px',
+            borderRadius: '6px',
+            border: '1px solid #cbd5e1',
+            backgroundColor: '#f1f5f9',
+            cursor: 'pointer',
+            fontSize: '15px',
+          }}
+        >
           Agregar
         </button>
       </div>
 
       {lista.length === 0 ? (
-        <p>No hay nada para comprar</p>
+        <p style={{ color: '#64748b', margin: 0 }}>No hay nada para comprar</p>
       ) : (
-        <ul style={{ listStyle: 'none', padding: 0 }}>
+        <ul style={{ paddingLeft: '20px', margin: 0 }}>
           {lista.map((item) => (
-            <li
-              key={item.id}
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                maxWidth: '300px',
-                padding: '6px 0',
-                borderBottom: '1px solid #eee',
-              }}
-            >
-              <span>{item.name}</span>
-              <button onClick={() => eliminarItem(item.id)} style={{ color: 'crimson' }}>
+            <li key={item.id} style={{ margin: '8px 0' }}>
+              <span style={{ marginRight: '10px' }}>{item.name}</span>
+              <button
+                onClick={() => eliminarItem(item.id)}
+                style={{
+                  padding: '2px 8px',
+                  borderRadius: '4px',
+                  border: '1px solid #cbd5e1',
+                  backgroundColor: '#ffffff',
+                  cursor: 'pointer',
+                  fontSize: '13px',
+                }}
+              >
                 Eliminar
               </button>
             </li>

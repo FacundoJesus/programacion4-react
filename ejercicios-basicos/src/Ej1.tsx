@@ -1,17 +1,29 @@
 // ----------------------- EJERCICIO 1 --------------------------------
+// Tarjetas de producto - Props
 interface ProductoProps {
   nombre: string;
   precio: number;
   stock: number;
 }
 
-// 1. Desestructurar las props en la firma como sugiere la pista
+// 1. Desestructurar las props en la firma: function Producto({ nombre, precio, stock })
 function Producto({ nombre, precio, stock }: ProductoProps) {
   return (
-    <div style={{ border: '1px solid #ccc', padding: '16px', margin: '8px 0', borderRadius: '8px' }}>
-      <h3>{nombre}</h3>
-      <p>Precio: ${precio}</p>
-      <p>{stock === 0 ? "Sin stock" : `Stock: ${stock} unidades`}</p>
+    <div
+      style={{
+        border: '1px solid #cbd5e1',
+        borderRadius: '8px',
+        padding: '16px',
+        minWidth: '160px',
+        backgroundColor: '#ffffff',
+        boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+      }}
+    >
+      <h3 style={{ margin: '0 0 8px 0', fontSize: '18px' }}>{nombre}</h3>
+      <p style={{ margin: '0 0 8px 0', fontWeight: '500' }}>${precio}</p>
+      <p style={{ margin: 0, color: stock === 0 ? '#dc2626' : '#475569' }}>
+        {stock === 0 ? 'Sin stock' : `Stock: ${stock} unidades`}
+      </p>
     </div>
   );
 }
@@ -20,10 +32,11 @@ function Producto({ nombre, precio, stock }: ProductoProps) {
 export default function Ej1() {
   return (
     <div>
-      <h3>Lista de Productos</h3>
-      <Producto nombre="Teclado" precio={45000} stock={12} />
-      <Producto nombre="Mouse" precio={18000} stock={0} />
-      <Producto nombre="Monitor" precio={32000} stock={3} />
+      <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginTop: '12px' }}>
+        <Producto nombre="Teclado" precio={45000} stock={12} />
+        <Producto nombre="Mouse" precio={18000} stock={0} />
+        <Producto nombre="Monitor" precio={320000} stock={3} />
+      </div>
     </div>
   );
 }

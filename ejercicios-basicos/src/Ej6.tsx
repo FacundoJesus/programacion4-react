@@ -1,18 +1,20 @@
 // ----------------------- EJERCICIO 6 --------------------------------
+// Buscador - Filtrado
 import { useState } from 'react';
 import type { ChangeEvent } from 'react';
 
-const lenguajes = [
-  { id: 1, lenguaje: 'Javascript' },
-  { id: 2, lenguaje: 'React' },
-  { id: 3, lenguaje: 'Typescript' },
-  { id: 4, lenguaje: 'Java' },
-  { id: 5, lenguaje: 'C#' },
-  { id: 6, lenguaje: 'Python' },
-  { id: 7, lenguaje: 'HTML' },
-  { id: 8, lenguaje: 'CSS' },
-  { id: 9, lenguaje: 'Cobol' },
-  { id: 10, lenguaje: 'Php' },
+const lenguajesIniciales = [
+  'JavaScript',
+  'TypeScript',
+  'Java',
+  'Python',
+  'C#',
+  'PHP',
+  'Ruby',
+  'Go',
+  'Rust',
+  'HTML',
+  'CSS',
 ];
 
 export default function Ej6() {
@@ -22,25 +24,38 @@ export default function Ej6() {
     setBusqueda(e.target.value);
   }
 
-  const lenguajesFiltrados = lenguajes.filter((i) =>
-    i.lenguaje.toLowerCase().includes(busqueda.trim().toLowerCase())
+  // Filtrado insensible a mayúsculas y minúsculas usando includes
+  const lenguajesFiltrados = lenguajesIniciales.filter((lenguaje) =>
+    lenguaje.toLowerCase().includes(busqueda.toLowerCase())
   );
 
   return (
-    <div>
+    <div style={{ maxWidth: '350px' }}>
       <input
         value={busqueda}
         onChange={buscarPalabra}
         type="text"
-        placeholder="Ingrese el lenguaje"
-        style={{ padding: '8px', borderRadius: '4px', border: '1px solid #ccc', minWidth: '240px' }}
+        placeholder="Buscar lenguaje..."
+        style={{
+          width: '100%',
+          padding: '8px 12px',
+          borderRadius: '6px',
+          border: '1px solid #cbd5e1',
+          fontSize: '15px',
+          boxSizing: 'border-box',
+          marginBottom: '12px',
+        }}
       />
 
-      {busqueda.trim() && <p style={{ fontWeight: 'bold' }}>{lenguajesFiltrados.length} resultados</p>}
+      <p style={{ margin: '0 0 10px 0', color: '#475569', fontSize: '15px' }}>
+        {lenguajesFiltrados.length} resultados
+      </p>
 
-      <ul>
-        {lenguajesFiltrados.map((item) => (
-          <li key={item.id}>{item.lenguaje}</li>
+      <ul style={{ paddingLeft: '20px', margin: 0 }}>
+        {lenguajesFiltrados.map((lenguaje) => (
+          <li key={lenguaje} style={{ margin: '4px 0' }}>
+            {lenguaje}
+          </li>
         ))}
       </ul>
     </div>
