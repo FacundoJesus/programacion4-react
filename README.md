@@ -7,12 +7,20 @@ Repositorio correspondiente a la cátedra de **Programación IV** (Tecnicatura U
 ```text
 programacion4-react/
    ejercicios-basicos/        (un proyecto Vite con los 7 ejercicios de "React desde cero")
-   frontend-endpoints/        (prácticas de endpoints)
+   frontend-endpoints/        (las 8 prácticas de endpoints, cada una en su carpeta con el proyecto completo)
+      practica1/
+      practica2/
+      practica3/
+      practica4/
+      practica5/
+      practica6/
+      practica7/
+      practica8/
 ```
 
 ---
 
-## Ejercicios Básicos (`ejercicios-basicos`)
+## 1. Ejercicios Básicos (`ejercicios-basicos`)
 
 Proyecto Vite + React + TypeScript que contiene la resolución de los 7 ejercicios de la guía "React desde cero":
 
@@ -34,6 +42,39 @@ npm run dev
 ```
 
 Para compilar y validar TypeScript:
+
+```bash
+npm run build
+```
+
+---
+
+## 2. Frontend Endpoints (`frontend-endpoints`)
+
+Cada carpeta contiene el proyecto completo y funcionando hasta dicha práctica inclusive:
+
+- **`practica1/`**: Consulta y visualización del detalle de usuario (`GET /user/{id}`) al hacer clic en un ítem de la lista.
+- **`practica2/`**: Formulario interactivo para la creación de un nuevo usuario (`POST /user`) con campos controlados en React y refresco de la lista.
+- **`practica3/`**: Búsqueda en tiempo real por nombre (`GET /user/search/{name}`) con codificación de URI y botón para limpiar/recargar el listado.
+- **`practica4/`**: Eliminación de usuarios (`DELETE /user/{id}`) con diálogo de confirmación y actualización reactiva de la lista en memoria.
+- **`practica5/`**: Código documentado con comentarios explicativos sobre DTOs, casting numérico y ciclo de vida de estados, más limpieza de estilos iniciales.
+- **`practica6/`**: Filtro alternable para listar "Todos" o "Solo mayores de edad" (`GET /user_mayores` vs `GET /users`).
+- **`practica7/`**: Identificación y saludo del usuario autenticado actual con sus roles asignados (`GET /user/me/id` -> `GET /user/{id}`).
+- **`practica8/`**: Persistencia de sesión con `localStorage`, callback `onUnauthorized` para manejo centralizado de respuestas HTTP 401 (sesión vencida) y alineación de endpoints con el backend.
+
+> **Nota:** La práctica 9 no lleva carpeta de código ya que se responde en el cuestionario de la cátedra.
+
+### Instrucciones de Ejecución de cualquier Práctica
+
+Para ingresar y ejecutar cualquiera de las prácticas (por ejemplo, `practica8`):
+
+```bash
+cd frontend-endpoints/practica8
+npm install
+npm run dev
+```
+
+Para compilar y verificar tipos:
 
 ```bash
 npm run build
